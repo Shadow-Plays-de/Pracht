@@ -1,7 +1,18 @@
 {
-    "SR5-Pracht":{
+    "SR5": {
+        "AttrResonance": "Pracht",
+        "Submersion": "Funke",
+        "Emerged": "Pracht",
+        "ActionCategory": {
+            "Resonance": "Pracht"
+        }
+    },
+    "SR5-Pracht": {
         "PRACHT": "Pracht",
         "FUNKE": "Funke",
+        "FunkeModLabel": "Funke-Modifikator",
+        "PrachtActions": "Pracht- & Funke-Aktionen",
+        "NoPrachtActions": "Keine Pracht- oder Funke-Aktionen auf diesem Charakter vorhanden.",
         "Settings": "Einstellungen"
     }
 }

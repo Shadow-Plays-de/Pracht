@@ -1,7 +1,18 @@
 {
-    "SR5-Pracht":{
+    "SR5": {
+        "AttrResonance": "Pracht",
+        "Submersion": "Funke",
+        "Emerged": "Pracht",
+        "ActionCategory": {
+            "Resonance": "Pracht"
+        }
+    },
+    "SR5-Pracht": {
         "PRACHT": "Pracht",
         "FUNKE": "Funke",
+        "FunkeModLabel": "Funke Modifier",
+        "PrachtActions": "Pracht & Funke Actions",
+        "NoPrachtActions": "No Pracht or Funke actions found on this character.",
         "Settings": "Settings"
     }
 }
