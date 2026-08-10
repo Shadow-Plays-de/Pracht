@@ -1,0 +1,88 @@
+<section class="tab hide-overflow{{#if tab.active}} active{{/if}}" data-group="{{tab.group}}" data-tab="{{tab.id}}">
+    <div class="fill-container">
+        {{!-- Compact Inline Attributes Section --}}
+        <div class="pracht-attributes-container margin-bottom-md">
+            <div class="attribute" data-attribute-id="resonance" data-context-menu="attribute">
+                <label class="margin-right-xs font-bold {{#if @root.isEditMode}}edit-mode{{/if}}" style="margin-bottom: 0; line-height: 1;">
+                    <i class="fas fa-sun"></i> {{localize "SR5-Pracht.PRACHT"}}:
+                </label>
+                <div class="attribute-value" style="display: inline-block;">
+                    {{#if @root.isEditMode}}
+                        <input type="number"
+                               name="system.attributes.resonance.base"
+                               value="{{@root.prachtValue}}"
+                               step="1"
+                               class="short skinny center">
+                    {{else}}
+                        <button class="icon sr5-icon"
+                                type="button"
+                                data-action="rollAttribute"
+                                data-attribute-id="resonance">{{@root.prachtValue}}</button>
+                    {{/if}}
+                </div>
+            </div>
+
+            <div class="attribute" data-attribute-id="submersion" data-context-menu="attribute">
+                <label class="margin-right-xs font-bold {{#if @root.isEditMode}}edit-mode{{/if}}" style="margin-bottom: 0; line-height: 1;">
+                    <i class="fas fa-fire"></i> {{localize "SR5-Pracht.FUNKE"}}:
+                </label>
+                <div class="attribute-value" style="display: inline-block;">
+                    {{#if @root.isEditMode}}
+                        <input type="number"
+                               name="system.attributes.submersion.base"
+                               value="{{@root.funkeValue}}"
+                               step="1"
+                               class="short skinny center"
+                               readonly>
+                    {{else}}
+                        <button class="icon sr5-icon"
+                                type="button"
+                                data-action="rollAttribute"
+                                data-attribute-id="submersion">{{@root.funkeValue}}</button>
+                    {{/if}}
+                </div>
+                
+                {{!-- Funke Modifier Controls (+ Green / - Red) --}}
+                <div class="funke-mod-controls margin-left-xs flexrow align-center" style="display: inline-flex; gap: 0.25rem;">
+                    <button type="button"
+                            class="btn-funke-mod btn-funke-plus"
+                            data-action="adjustFunkeMod"
+                            data-delta="1"
+                            title="Funken-Modifikator +1">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button type="button"
+                            class="btn-funke-mod btn-funke-minus"
+                            data-action="adjustFunkeMod"
+                            data-delta="-1"
+                            title="Funken-Modifikator -1">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    {{#if @root.funkeMod}}
+                        <span class="funke-mod-badge {{#if (gt @root.funkeMod 0)}}positive{{else}}negative{{/if}}">
+                            ({{@root.funkeModFormatted}})
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+
+        {{!-- Actions List Section --}}
+        {{> 'systems/shadowrun5e/dist/templates/v2/list-items/action/header.hbs'
+            label='SR5-Pracht.PrachtActions'
+            type='action'
+            cssClass="header-for-scrollable" }}
+
+        <div id="pracht-actions-scroll" class="scrollable">
+            {{#each @root.prachtActions}}
+                {{> "systems/shadowrun5e/dist/templates/v2/list-items/action/item.hbs"
+                    item=this.action
+                    name=this.name }}
+            {{else}}
+                <div class="empty-list-notice p-4 text-center italic text-gray-500">
+                    {{localize 'SR5-Pracht.NoPrachtActions'}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
