@@ -65,7 +65,7 @@ jobs:
           draft: ${{ github.event.release.unpublished }}
           prerelease: ${{ github.event.release.prerelease }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          bodyFile: 'CHANGELOG.md'
           # We take module.json from dist because it's the processed version
           artifacts: './dist/module.json, ./module.zip'
           tag: ${{ github.event.release.tag_name }}
-          body: ${{ github.event.release.body }}

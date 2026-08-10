@@ -60,7 +60,9 @@ export default defineConfig({
       targets: [
         { src: 'module.json', dest: '.' },
         { src: 'languages', dest: '.' },
-        { src: 'templates', dest: '.' }
+        { src: 'templates', dest: '.' },
+        { src: 'CHANGELOG.md', dest: '.' },
+        { src: 'README.md', dest: '.' }
       ]
     })
   ]
